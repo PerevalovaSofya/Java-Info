@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}" type="text/css">
+
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body class="background-style">
+<h4 class="font-style margin">Авторизация</h4>
+<form th:action="@{/login}" th:method="POST" class="font-style margin margin-t">
+    <label class="margin-t"> Имя пользователя </label>
+    <input class="input-different" type="text" name="username" value="login" style="margin-left: 20px">
+    <br>
+    <label class="margin-t">Пароль</label>
+    <input class="input-different" type="password" name="password" style="margin-left: 105px">
+    <br>
+    <a class="font-color text-decoration-none margin-t" href="/registration">Регистрация</a>
+    <input class="margin-t input-home" type="submit" value="Вход" style="margin-left: 100px"/>
+
+</form>
+</body>
+</html>

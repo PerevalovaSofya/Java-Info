@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{../../css/style.css}" type="text/css">
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/friends/update}" th:object="${friend}" class="margin-l">
+    <label for="peer1">Peer 1</label>
+<!--    <input class="input-different" type="text" th:field="*{peer1}" id="peer1">-->
+    <select class="input-different" id="peer1" name="peer1" style="margin-left: 60px">
+        <option selected hidden th:value="*{peer1}" th:text="*{peer1}" ></option>
+        <option th:each="peer : ${peers}"
+                th:value="${peer.getNickname()}"
+                th:text="${peer.getNickname()}">
+        </option>
+    </select>
+    </br>
+    <label class="margin-t" for="peer2">Peer 2</label>
+    <select class="input-different" id="peer2" name="peer2" style="margin-left: 58px">
+        <option selected hidden th:value="*{peer2}" th:text="*{peer2}" ></option>
+        <option th:each="peer : ${peers}"
+                th:value="${peer.getNickname()}"
+                th:text="${peer.getNickname()}">
+        </option>
+    </select>
+    </br>
+    <input type="hidden" th:field="*{id}"/>
+    <button type="button" class="input-home  margin-t" data-toggle="modal" data-target="#updateModal">Update</button>
+    <div th:insert="~{inner_scripts/update :: update}"></div>
+</form>
+<div th:insert="~{inner_scripts/scripts :: scripts}"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Update Transferred Point</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Update Transferred Point</h1>
+  <form th:action="@{/transferredpoints/update/{id}(id=${transferredPoint.id})}" method="post">
+    <div class="form-group">
+      <label for="checkingPeer">Checking Peer:</label>
+      <input class="form-control" type="text" id="checkingPeer" name="checkingPeer" th:value="${transferredPoint.checkingPeer}"/>
+    </div>
+    <div class="form-group">
+      <label for="checkedPeer">Checked Peer:</label>
+      <input class="form-control" type="text" id="checkedPeer" name="checkedPeer" th:value="${transferredPoint.checkedPeer}"/>
+    </div>
+    <div class="form-group">
+      <label for="pointsAmount">Points Amount:</label>
+      <input class="form-control" type="number" id="pointsAmount" name="pointsAmount" th:value="${transferredPoint.pointsAmount}"/>
+    </div>
+    <button class="btn btn-primary" type="submit">Update Transfer</button>
+  </form>
+</div>
+
+</body>
+</html>

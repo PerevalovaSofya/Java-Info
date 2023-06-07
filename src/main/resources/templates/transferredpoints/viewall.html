@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>View All Transferred Points</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}" type="text/css">
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body>
+
+<table class="container">
+    <tr>
+        <th class="col2">Checking Peer</th>
+        <th class="col2">Checked Peer</th>
+        <th class="col2">Points Amount</th>
+        <th class="col2" style="text-align:center">Actions</th>
+        <th class="col2"></th>
+    </tr>
+    <tr th:each="transferredPoint : ${transferredPoints}">
+        <td class="col4" th:text="${transferredPoint.checkingPeer}"></td>
+        <td class="col4" th:text="${transferredPoint.checkedPeer}"></td>
+        <td class="col3" th:text="${transferredPoint.pointsAmount}"></td>
+        <td>
+            <button class="input-home" data-toggle="modal"
+                    data-target="#updateModal" data-id="${transferredPoint.id}">
+                Update
+            </button>
+        </td>
+        <td>
+            <form th:action="@{/transferredpoints/delete/{id}(id=${transferredPoint.id})}" method="post"
+                  style="display: inline-block;">
+                <button class="input-home" type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<form th:action="@{/transferredpoints/add}" method="get">
+    <button class="btn btn-success" type="submit">Add Transfer</button>
+</form>
+
+<!--&lt;!&ndash; Update Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="updateModalLabel">Update Transferred Point</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form id="updateForm" method="post">-->
+<!--                    <label for="checkingPeer">Checking Peer:</label>-->
+<!--                    <input class="form-control" type="text" id="checkingPeer" name="checkingPeer"/>-->
+<!--                    <br/>-->
+<!--                    <label for="checkedPeer">Checked Peer:</label>-->
+<!--                    <input class="form-control" type="text" id="checkedPeer" name="checkedPeer"/>-->
+<!--                    <br/>-->
+<!--                    <label for="pointsAmount">Points Amount:</label>-->
+<!--                    <input class="form-control" type="number" id="pointsAmount" name="pointsAmount"/>-->
+<!--                    <br/>-->
+<!--                    <input type="hidden" id="transferredPointId"/>-->
+<!--                    <button class="btn btn-primary" type="submit">Update Transfer</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>-->
+<!--<script th:inline="javascript">-->
+<!--    $(document).ready(function () {-->
+<!--        $('#updateModal').on('show.bs.modal', function (event) {-->
+<!--            var button = $(event.relatedTarget);-->
+<!--            var id = button.data('id');-->
+<!--            var modal = $(this);-->
+<!--            var updateUrl = '/transferredpoints/update/' + id;-->
+<!--            modal.find('#updateForm').attr('action', updateUrl);-->
+<!--            modal.find('#transferredPointId').val(id);-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+</body>
+</html>

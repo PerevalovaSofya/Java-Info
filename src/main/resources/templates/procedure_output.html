@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{../css/style.css}" type="text/css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body>
+
+<div class="container">
+    <h3>Procedure Output</h3>
+    <hr>
+    <table class="table table-border table-stripped">
+        <thead>
+        <tr>
+            <div th:each="row : ${result}">
+                <th class="col2" th:text="${row.key}" style="padding-left: 60px;"></th>
+            </div>
+        </tr>
+        </thead>
+        <tbody>
+        <td th:each="row : ${result}">
+            <table>
+                <tr th:each="val : ${row.value}">
+                    <td th:text="${val}"></td>
+                </tr>
+            </table>
+        </td>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

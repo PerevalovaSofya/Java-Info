@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{../css/style.css}" type="text/css">
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+
+<body>
+<form th:method="POST" th:action="@{/verter}" th:object="${verter}" class="margin-l">
+    <label class="margin-t" for="checkid">Select check id </label>
+    <select class="input-different" id="checkid" name="checkid" style="margin-left: 40px">
+        <option th:each="check : ${checks}"
+                th:value="${check.getId()}"
+                th:text="${check.getId()}">
+        </option>
+    </select>
+    </br>
+
+    <label class="margin-t" for="state">Select state </label>
+    <!--    <input  class="input-different" type="text" th:field="*{state}" id="state" style="margin-left: 38px">-->
+    <select class="input-different" id="state" name="state" style="margin-left: 65px">
+        <option>start</option>
+        <option>success</option>
+        <option>failure</option>
+    </select>
+    </br>
+
+    <label class="margin-t" for="time">Enter time </label>
+    <input  class="input-different" type="text" th:field="*{time}" id="time" style="margin-left: 77px">
+    </br>
+
+    <button type="button" class="input-home margin-t" data-toggle="modal" data-target="#addModal">Add</button>
+    <div th:insert="~{inner_scripts/add :: add}"></div>
+</form>
+<div th:insert="~{inner_scripts/scripts :: scripts}"></div>
+</body>
+
+
+</html>

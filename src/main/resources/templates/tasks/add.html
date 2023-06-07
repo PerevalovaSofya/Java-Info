@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+        type="text/css"/>
+  <link rel="stylesheet" href="../../static/css/style.css" th:href="@{../css/style.css}" type="text/css">
+  <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+
+<form th:method="POST" th:action="@{/tasks}" th:object="${tasks}" class="margin-l">
+  <label class="margin-t" for="title">Enter task </label>
+  <input class="input-different" type="text" th:field="*{title}" id="title" style="margin-left: 65px">
+  <div  th:if="${#fields.hasErrors('title')}" th:error="*{title}">Error title</div>
+  </br>
+  <label class="margin-t" for="parenttask">Select parent task </label>
+  <select class="input-different" id="parenttask" name="parenttask" style="margin-left: 6px">
+    <option value=NULL ></option>
+    <option th:each="tasg : ${task}"
+            th:value="${tasg.getTitle}"
+            th:text="${tasg.getTitle}">
+    </option>
+  </select>
+  </br>
+  <label class="margin-t" for="maxxp">Enter max XP </label>
+  <input class="input-different" type="number" th:field="*{maxxp}" id="maxxp" min="100" max="2000" style="margin-left: 40px">
+  <div th:if="${#fields.hasErrors('maxxp')}">Error XP</div>
+  </br>
+  <button type="button" class="input-home margin-t" data-toggle="modal" data-target="#addModal">Add</button>
+  <div th:insert="~{inner_scripts/add :: add}"></div>
+</form>
+<div th:insert="~{inner_scripts/scripts :: scripts}"></div>
+
+</body>
+</html>

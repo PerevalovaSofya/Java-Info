@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{../css/style.css}" type="text/css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body>
+<div class="container">
+    <form th:method="get" th:action="@{/procedure/1}">
+        <div>
+            <tr>
+                <input class="input-home" type="submit" value="Процедура N1">
+            </tr>
+            <p class="margin-t font-style">
+                Процедура возвращает таблицу TransferredPoints в более человекочитаемом виде.
+            </p>
+        </div>
+    </form>
+
+    <!--<a class="btn btn-primary" aria-current="page" href="/procedure/12">Процедура 1</a>-->
+    <!--<div>-->
+    <!--    Процедура возвращает таблицуцууцуцуцуцу-->
+    <!--    <p></p>-->
+    <!--</div>-->
+    <form th:method="get" th:action="@{/procedure/2}">
+        <div>
+            <tr>
+                <input class="input-home" type="submit" value="Процедура N2">
+            </tr>
+            <p class="margin-t font-style">
+                Функция возвращает таблицу вида: ник пользователя, название проверенного задания, количество
+                полученного XP.
+            </p>
+        </div>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/3}">
+        <div>
+            <tr>
+                <input class="input-home" type="submit" value="Процедура N3">
+                <label for="datedate" class="col-form-label">День:</label>
+                <input class="input-different margin-l10" required="required" type="text" th:name="args" id="datedate">
+            </tr>
+            <p class="margin-t font-style">
+                Функция определяет пиров, которые не выходили из кампуса в течение всего дня
+                <br>
+                Параметры: день, например 2022-12-05
+            </p>
+        </div>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/4}">
+        <div>
+            <tr>
+                <input class="input-home" type="submit" value="Процедура N4">
+            </tr>
+            <p class="margin-t font-style">
+                Функция возвращает процент успешных и неуспешных проверок за все время
+            </p>
+        </div>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/5}">
+        <div>
+            <tr>
+                <input class="input-home" type="submit" value="Процедура N5">
+            </tr>
+            <p class="margin-t font-style">
+                Фунцкия считает изменение в количестве пир поинтов каждого пира.
+            </p>
+        </div>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/6}">
+        <div>
+            <tr>
+                <input class="input-home" type="submit" value="Процедура N6">
+            </tr>
+            <p class="margin-t font-style">
+                Фунцкия считает изменение в количестве пир поинтов каждого пира по таблице возвращаемой первой функцией.
+            </p>
+        </div>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/7}">
+        <div>
+            <tr>
+                <input class="input-home" type="submit" value="Процедура N7">
+            </tr>
+            <p class="margin-t font-style">
+                Функция определяет самое часто проверяемое задание за каждый день.
+            </p>
+        </div>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/8}">
+        <div>
+            <tr>
+                <input class="input-home" type="submit" value="Процедура N8">
+            </tr>
+            <p class="margin-t font-style">
+                Функция определяет длительность последней P2P проверки.
+            </p>
+        </div>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/9}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N9">
+            <label for="block_name" class="col-form-label">Название блока:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="block_name">
+        </tr>
+        <p class="margin-t font-style">
+            Функция находит всех пиров выполнивших весь заданный блок задач и дату завершения последнего задания.
+            <br>
+            Параметры: название блока, например "CPP".
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/10}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N10">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет к какому пиру стоит идти на проверку каждому обучающемуся.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/11}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N11">
+            <label for="block1_name" class="col-form-label">Название блока 1:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="block1_name">
+            <label for="block2_name" class="col-form-label">Название блока 2:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="block2_name">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет процент пиров которые:
+            <br>
+            1) Приступили только к блоку 1.
+            <br>
+            2) Приступили только к блоку 2.
+            <br>
+            3) Приступили к обоим.
+            <br>
+            4) Не приступили ни к одному.
+            <br>
+            Параметры: название блока 1 и блока 2, например "CPP".
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/12}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N12">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет количество пиров с наибольшим числом друзей.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/13}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N13">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет процент пиров которые когда-либо успешно проходили проверку в свой день рождения.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/14}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N14">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет количество XP полученное в сумме каждым пиром.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/15}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N15">
+            <label for="task_1" class="col-form-label">Название блока 1:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="task_1">
+            <label for="task_2" class="col-form-label">Название блока 2:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="task_2">
+            <label for="task_3" class="col-form-label">Название блока 2:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="task_3">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет процент пиров которые сдали задания 1 и 2, но не сдали 3.
+            <br>
+            Параметры: название 1-го, 2-го и 3-го заданий.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/16}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N16">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет количество задач, предшествующее каждой задаче.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/17}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N17">
+            <label for="check_count" class="col-form-label">Количество проверок:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="check_count">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет "удачные" для проверок дни.
+            <br>
+            Параметры: количество успешных подряд идущих проверок.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/18}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N18">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет пира с наибольшим количеством выполненных заданий.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/19}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N19">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет пира с наибольшим количеством XP.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/20}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N20">
+            <label for="day" class="col-form-label">День:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="day">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет пира который в определенный день провел в кампусе больше всего времени.
+            <br>
+            Параметры: День.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/21}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N21">
+            <label for="time" class="col-form-label">Время:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="time">
+            <label for="countN" class="col-form-label">Количество раз:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="countN">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет пиров, приходивших раньше заданного времени не менее N раз за все время.
+            <br>
+            Параметры:
+            <br>
+            1) Время
+            <br>
+            2) Количество раз
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/22}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N22">
+            <label for="date" class="col-form-label">Дата:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="date">
+            <label for="days_count" class="col-form-label">Количество дней:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="days_count">
+            <label for="countN2" class="col-form-label">Количество раз:</label>
+            <input class="input-different margin-l10" required="required" type="text" th:name="args" id="countN2">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет пиров, выходивших из кампуса больше M раз за количество дней N от заданной даты.
+            <br>
+            Параметры:
+            <br>
+            1) Дата
+            <br>
+            2) Количество дней
+            <br>
+            3) Количество раз
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/23}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N23">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет пира который пришел сегодня последним.
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/24}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N24">
+            <label for="minutes" class="col-form-label">Количество минут:</label>
+            <input class="input-different margin-l10 " required="required" type="text" th:name="args" id="minutes">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет пиров, выходивших вчера из кампуса больше чем на N минут.
+            <br>
+            Параметры: количество минут N
+        </p>
+    </form>
+
+    <form th:method="get" th:action="@{/procedure/25}">
+        <tr>
+            <input class="input-home" type="submit" value="Процедура N25">
+        </tr>
+        <p class="margin-t font-style">
+            Функция определяет процент ранних приходов для каждого месяца.
+        </p>
+    </form>
+
+
+    <form th:action="@{/procedure/custom_query}">
+        <!--  <div class="mb-3">-->
+
+        <!--  </div>-->
+        <input required="required" type="submit" class="input-home" value="Execute">
+        <label class="margin-l10" for="query" class="col-form-label">Запрос:</label>
+        <input class="input-different margin-l10" required="required" type="text" th:name="query" id="query">
+        </br>
+    </form>
+    </br>
+</div>
+</body>
+</html>

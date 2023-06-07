@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{../css/style.css}" type="text/css">
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/recommendations}" th:object="${recommendation}" class="margin-l">
+    <label for="peer">Enter Peer </label>
+    <select class="input-different" id="peer" name="peer" style="margin-left: 135px">
+        <option th:each="peer : ${peers}"
+                th:value="${peer.getNickname()}"
+                th:text="${peer.getNickname()}">
+        </option>
+    </select>
+    <!--    <input class="input-different" type="text" th:field="*{peer}" id="peer" style="margin-left: 135px">-->
+    <br/>
+    <label class="margin-t" for="recommendedPeer">Enter Recommended Peer </label>
+    <select class="input-different" id="recommendedPeer" name="peer" style="margin-left: 20px">
+        <option th:each="peer : ${peers}"
+                th:value="${peer.getNickname()}"
+                th:text="${peer.getNickname()}">
+        </option>
+    </select>
+    <br/>
+    <button type="button" class="input-home margin-t" data-toggle="modal" data-target="#addModal">Add</button>
+    <div th:insert="~{inner_scripts/add :: add}"></div>
+</form>
+<div th:insert="~{inner_scripts/scripts :: scripts}"></div>
+</body>
+</html>

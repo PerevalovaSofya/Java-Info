@@ -1,0 +1,198 @@
+.input-home {
+    border-radius: 5px;
+    color: #212121;
+    height: 40px;
+    width: 140px;
+    background-color: #44EB99;
+    border: none;
+    font-family: "SB Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    /*padding-left: 60px;*/
+}
+
+.input-home:hover {
+    height: 40px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background-color: #BA1BFF;
+    border: none;
+
+}
+
+
+.input-different {
+    border-radius: 5px;
+    background-color: rgb(232, 240, 254);
+    height: 35px;
+    width: 180px;
+    font-family: "SB Sans", sans-serif;
+    border-color: #AEBBCA;
+    border-width: 1px;
+    font-size: 13px;
+    font-style: normal;
+    padding-left: 10px;
+}
+
+.input-different:active {
+    border-color: #BA1BFF;
+}
+
+input[type=text]:hover, input[type=password]:hover {
+    border-color: #861BE3;
+}
+
+.margin {
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.font-style {
+    font-family: "SB Sans", sans-serif;
+}
+
+.font-color {
+    color: #BA1BFF;
+    /*margin-outside: 20px;*/
+}
+
+.margin-l {
+    margin-left: 60px;
+}
+
+.margin-l10 {
+    margin-left: 10px;
+}
+
+.margin-r {
+    margin-right: 60px;
+}
+
+.margin-t {
+    margin-top: 10px;
+}
+
+.margin-table {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+.button {
+    border-radius: 5px;
+    color: #FFFFFF;
+    height: 40px;
+    width: 140px;
+    background-color: #8191A2;
+    border: none;
+    font-family: "SB Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+}
+
+.table-button {
+    background-color: #EBECF4;
+    border-color: #8191A2;
+    border-width: 2px;
+    font-family: "SB Sans", sans-serif;
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.close-button {
+    background-color: #EBECF4;
+    border-color: #8191A2;
+    border-width: 2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.table-button:hover {
+    background-color: #44EB99;
+}
+
+.table-link {
+    color: #212121;
+    font-size: 25px;
+    font-style: normal;
+}
+
+
+.navbar-style {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: "SB Sans Text", serif;
+    margin-top: 10px;
+}
+
+.navbar-style:hover {
+    color: #44EB99
+}
+
+.navbar-header-style {
+    background-color: #1D2633
+}
+
+.background-style {
+    background-color: #ffffff;
+}
+
+.table-state {
+    /*width: 840px;*/
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 840px) {
+    .table-state {
+        width: 840px
+    }
+}
+
+@media screen and (max-width: 839px) {
+    .table-state {
+        max-width: 420px
+    }
+}
+
+/*.my_div {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*}*/
+
+TABLE {
+    width: 80%; /* Ширина таблицы */
+    margin: 20px auto;
+
+}
+
+
+.col1 {
+    width: 40%;
+
+}
+
+.col2 {
+    background: #8191A2;
+
+}
+
+.col3 {
+    width: 15%;
+}
+
+.col4 {
+    width: 30%;
+}
+
+.col1, .col2, .col3, .col4 {
+    height: 40px;
+    vertical-align: center; /* Выравнивание по верхнему краю */
+    padding: 10px; /* Поля вокруг содержимого ячеек */
+}
+
+

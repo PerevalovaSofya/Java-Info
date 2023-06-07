@@ -1,0 +1,12 @@
+<div th:fragment="alerts">
+    <div class="alert alert-success alert-dismissible fade show margin-l margin-r" th:if="${success}" role="alert">
+        <strong>Данные успешно добавлены</strong>
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+        </button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show margin-l margin-r" role="alert" th:if="${error}">
+        <strong>Данные не корректны. Попробуйте еще раз</strong>
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+        </button>
+    </div>
+</div>

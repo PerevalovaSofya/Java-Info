@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body class="background-style">
+<div class="table-state font-style font-color text-decoration-none nav-link-active formWrapper">
+    <!--  <li class="nav-link-active">-->
+    <form th:method="get" th:action="@{/peers}" style="float:left;">
+        <input class="table-button margin-table" type="submit" value="Peers">
+    </form>
+
+    <form th:method="get" th:action="@{/friends}" style="float:left;">
+        <input class="table-button margin-table" type="submit" value="Friends">
+    </form>
+
+    <form th:method="get" th:action="@{/recommendations}" style="float:left;">
+        <input class="table-button margin-table" type="submit" value="Recommendations">
+    </form>
+    <form th:method="get" th:action="@{/transferredpoints}" style="float:right;">
+        <input class="table-button margin-table" type="submit" value="Transferred points">
+    </form>
+    <form th:method="get" th:action="@{/timetracking}" style="float:right;">
+        <input class="table-button margin-table" type="submit" value="Timetracking">
+    </form>
+
+    <form th:method="get" th:action="@{/checks}" style="float:left;">
+        <input class="table-button margin-table" type="submit" value="Checks">
+    </form>
+
+    <form th:method="get" th:action="@{/verter}" style="float:right;">
+        <input class="table-button margin-table" type="submit" value="Verter checks">
+    </form>
+
+    <form th:method="get" th:action="@{/peertopeer}" style="float:right;">
+        <input class="table-button margin-table" type="submit" value="Peer-to-peer">
+    </form>
+    <form th:method="get" th:action="@{/tasks}" style="float:left;">
+        <input class="table-button margin-table" type="submit" value="Tasks">
+    </form>
+
+    <form th:method="get" th:action="@{/xp}" style="float:right;">
+        <input class="table-button margin-table" type="submit" value="XP">
+    </form>
+
+
+</div>
+<!--<button for="name">Checks</button>-->
+<!--</br>-->
+<!--<form th:method="get" th:action = "@{/peers}">-->
+<!--  <input type="submit" value="Peers">-->
+<!--</form>-->
+<!--<button for="name">Friends</button>-->
+<!--</br>-->
+<!--<button for="name">Peer-to-peer</button>-->
+<!--</br>-->
+<!--<button for="name">Recommendations</button>-->
+<!--</br>-->
+<!--<button for="name">Tasks</button>-->
+<!--</br>-->
+<!--<button for="name">Timetracking</button>-->
+<!--</br>-->
+<!--<button for="name">Transferred points</button>-->
+<!--</br>-->
+<!--<button for="name">Verter checks</button>-->
+<!--</br>-->
+<!--<button for="name">XP</button>-->
+<!--</br>-->
+</body>
+</html>

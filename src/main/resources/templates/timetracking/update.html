@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{../../css/style.css}" type="text/css">
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/timetracking/update}" th:object="${timetracking}" class="margin-l">
+
+    <label class="margin-t" for="peer">Enter Peer </label>
+    <select class="input-different" id="peer" name="peer" style="margin-left: 67px">
+        <option selected hidden th:value="*{peer}" th:text="*{peer}"></option>
+        <option th:each="peer : ${peers}"
+                th:value="${peer.getNickname()}"
+                th:text="${peer.getNickname()}">
+        </option>
+    </select>
+
+    </br>
+    <label class="margin-t" for="date">Select date </label>
+    <input  class="input-different" type="date" th:field="*{date}" id="date" style="margin-left: 60px">
+
+    </br>
+    <label class="margin-t" for="time">Enter time </label>
+    <input class="input-different" type="text" th:field="*{time}" id="time" style="margin-left: 70px">
+    </br>
+
+    <label class="margin-t" for="state">Select state </label>
+    <select class="input-different" id="state" name="state" style="margin-left: 58px">
+        <option>1</option>
+        <option>2</option>
+    </select>
+    </br>
+
+    <button type="button" class="input-home  margin-t" data-toggle="modal" data-target="#updateModal">Update</button>
+    <div th:insert="~{inner_scripts/update :: update}"></div>
+</form>
+<div th:insert="~{inner_scripts/scripts :: scripts}"></div>
+</body>
+</html>

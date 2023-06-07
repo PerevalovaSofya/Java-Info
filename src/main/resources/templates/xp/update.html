@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{../../css/style.css}" type="text/css">
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // Your JavaScript code here
+        /*]]>*/
+    </script>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/xp/update}" th:object="${xp}" class="margin-l">
+    <label for="checkid">Enter Check ID </label>
+    <input class="input-different " type="number" th:field="*{checkId}" id="checkid" min="1"
+           style="margin-left: 100px">
+    <!--    <select class="input-different" id="xp" name="xp" style="margin-left: 135px">-->
+    <!--        <option selected hidden th:value="*{chekId}" th:text="*{chekId}"></option>-->
+    <!--        <option th:each="vert : ${verter}"-->
+    <!--                th:value="${vert.id}"-->
+    <!--                th:text="${peer.id}">-->
+    <!--        </option>-->
+    <!--    </select>-->
+    <br/>
+    <label class="margin-t" for="xpamount">Enter Recommended Peer </label>
+    <input class="input-different " type="number" th:field="*{xpAmount}" id="xpamount" min="80" max="2000"
+           style="margin-left: 18px">
+    <br/>
+    <input type="hidden" th:field="*{id}"/> <!-- include the id of the recommendation as a hidden input field -->
+    <!--    <input class="input-home margin-t" type="submit" value="Update"/>-->
+    <button type="button" class="input-home  margin-t" data-toggle="modal" data-target="#updateModal">Update</button>
+    <div th:insert="~{inner_scripts/update :: update}"></div>
+</form>
+<div th:insert="~{inner_scripts/scripts :: scripts}"></div>
+</body>
+</html>

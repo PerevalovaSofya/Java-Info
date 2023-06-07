@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}" type="text/css">
+    <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
+</head>
+<body>
+
+
+<table class="container">
+    <tr>
+        <td class="col2">Title</td>
+        <td class="col2">Parent Task</td>
+        <td class="col2">Max XP</td>
+        <td class="col2"></td>
+        <td class="col2"></td>
+    </tr>
+    <tr th:each="task : ${tasks}">
+
+        <td class="col1" th:text="${task.getTitle()}"></td>
+        <td class="col1" th:text="${task.getParenttask}"></td>
+        <td class="col1" th:text="${task.getMaxxp}"></td>
+        <td>
+            <form th:method="POST" th:action="@{/tasks/update/__${task.getTitle()}__}">
+                <input class="input-home " type="submit" value="Update"/>
+            </form>
+        </td>
+        <td>
+            <button class="input-home" data-toggle="modal"
+                    th:attr="data-target='#deleteDialog' + ${task.hashCode()}">
+                Delete
+            </button>
+            <div class="modal fade" th:attr="id='deleteDialog'+${task.hashCode()}" tabindex="-1"
+                 role="dialog"
+                 aria-labelledby="deleteModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Удаление данных</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div th:text="'Вы действительно хотите удалить ' +${task.getTitle()} + '?'"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button" data-dismiss="modal">Close
+                            </button>
+                            <form th:method="POST" th:action="@{/tasks/delete/__${task.getTitle()}__}">
+                                <input class="input-home" type="submit" value="Delete"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+        <th>
+            <form th:method="get" th:action="@{/tasks/add}">
+                <input class="input-home" type="submit" value="Add task">
+            </form>
+        </th>
+    </tr>
+</table>
+<div th:insert="~{inner_scripts/scripts :: scripts}"></div>
+</body>
+</html>
