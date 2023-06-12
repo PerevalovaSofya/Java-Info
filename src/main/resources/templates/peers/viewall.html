@@ -9,11 +9,12 @@
     <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
 </head>
 <body>
+<div th:insert="~{inner_scripts/alerts :: alerts}"></div>
 <table class="container">
     <tr>
         <td class="col2">Nickname</td>
         <td class="col2">Birthday</td>
-        <th class="col2" style="text-align:center">Actions</th>
+        <td class="col2"></td>
         <td class="col2"></td>
     </tr>
     <tr th:each="peer : ${peers}">
@@ -29,8 +30,6 @@
                     th:attr="data-target='#deleteDialog' + ${peer.getNickname()}">
                 Delete
             </button>
-        </td>
-        <td>
             <div class="modal fade" th:attr="id='deleteDialog'+${peer.getNickname()}" tabindex="-1"
                  role="dialog"
                  aria-labelledby="deleteModalLabel"

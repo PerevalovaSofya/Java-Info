@@ -165,10 +165,10 @@ CREATE TRIGGER trg_checks_tasks_audit
     FOR EACH ROW
 EXECUTE FUNCTION fnc_trg_checks_tasks_audit();
 
-SET path.var TO '/Users/ashkhenantonyan/APJ4_Info21_v2.0_Web_Java-2/src/main/resources/data/';
+-- SET path.var TO '/Users/ashkhenantonyan/APJ4_Info21_v2.0_Web_Java-2/src/main/resources/data/';
 -- --SET path.var TO '/home/ohyperio/develop/SQL2_Info21_v1.0-0/src/data/';
 -- --SET path.var TO '/home/tls/develop/SQL2_Info21_v1.0-0/src/data/';
--- SET path.var TO '/Users/ldiomede/Projects/SQL/SQL2_Info21_v1.0-0/src/data/';
+SET path.var TO '/Users/ldiomede/Projects/SQL/SQL2_Info21_v1.0-0/src/data/';
 --
 CREATE OR REPLACE PROCEDURE import(IN name_table text, IN name_file text, IN delim text)
 AS

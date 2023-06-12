@@ -7,26 +7,18 @@
           type="text/css"/>
     <link rel="stylesheet" href="../../static/css/style.css" th:href="@{../../css/style.css}" type="text/css">
     <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
-
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        // Your JavaScript code here
-        /*]]>*/
-    </script>
 </head>
 <body>
 
 <form th:method="POST" th:action="@{/xp/update}" th:object="${xp}" class="margin-l">
-    <label for="checkid">Enter Check ID </label>
-    <input class="input-different " type="number" th:field="*{checkId}" id="checkid" min="1"
-           style="margin-left: 100px">
-    <!--    <select class="input-different" id="xp" name="xp" style="margin-left: 135px">-->
-    <!--        <option selected hidden th:value="*{chekId}" th:text="*{chekId}"></option>-->
-    <!--        <option th:each="vert : ${verter}"-->
-    <!--                th:value="${vert.id}"-->
-    <!--                th:text="${peer.id}">-->
-    <!--        </option>-->
-    <!--    </select>-->
+    <label for="checkId">Enter Check ID </label>
+        <select class="input-different" id="checkId" name="checkId" style="margin-left: 100px">
+            <option selected hidden th:value="*{checkId}" th:text="*{checkId}"></option>
+            <option th:each="check : ${checks}"
+                    th:value="${check.id}"
+                    th:text="${check.id}">
+            </option>
+        </select>
     <br/>
     <label class="margin-t" for="xpamount">Enter Recommended Peer </label>
     <input class="input-different " type="number" th:field="*{xpAmount}" id="xpamount" min="80" max="2000"

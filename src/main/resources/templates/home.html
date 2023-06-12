@@ -20,9 +20,15 @@
     <input type="submit" class="input-home" value="All procedures">
 </form>
 
+<form th:method="get" th:action="@{/info}" class="margin">
+    <input type="submit" class="input-home" value="Info">
+</form>
+
 <form th:method="post" th:action="@{/logout}" class="margin">
     <input type="submit" class="input-home" value="Logout">
 </form>
+
+
 
 </body>
 </html>

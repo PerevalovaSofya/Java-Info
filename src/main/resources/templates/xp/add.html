@@ -11,8 +11,14 @@
 <body>
 
 <form th:method="POST" th:action="@{/xp}" th:object="${xp}" class="margin-l">
-    <label for="checkId">Select Check ID </label>
-    <input class="input-different" type="number" th:field="*{checkId}" id="checkId" min="1" style="margin-left: 40px">
+    <label for="checkId">Select  Check ID </label>
+    <select class="input-different" id="checkId" name="checkId" style="margin-left: 40px">
+        <option selected hidden th:value="*{checkId}" th:text="*{checkId}"></option>
+        <option th:each="check : ${checks}"
+                th:value="${check.id}"
+                th:text="${check.id}">
+        </option>
+    </select>
     </br>
     <label class="margin-t" for="xpAmount">Enter XP Amount </label>
     <input class="input-different" type="number" th:field="*{xpAmount}" id="xpAmount" min="80" max="2000" style="margin-left: 30px">

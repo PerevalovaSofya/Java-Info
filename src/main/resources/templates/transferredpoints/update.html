@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf">
 <head>
-  <meta charset="UTF-8"/>
-  <title>Update Transferred Point</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <link href="//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text" rel="stylesheet"
+        type="text/css"/>
+  <link rel="stylesheet" href="../../static/css/style.css" th:href="@{../../css/style.css}" type="text/css">
+  <header th:insert="~{inner_scripts/navbar :: navbar}"></header>
 </head>
 <body>
 
-<div class="container">
-  <h1>Update Transferred Point</h1>
-  <form th:action="@{/transferredpoints/update/{id}(id=${transferredPoint.id})}" method="post">
-    <div class="form-group">
-      <label for="checkingPeer">Checking Peer:</label>
-      <input class="form-control" type="text" id="checkingPeer" name="checkingPeer" th:value="${transferredPoint.checkingPeer}"/>
-    </div>
-    <div class="form-group">
-      <label for="checkedPeer">Checked Peer:</label>
-      <input class="form-control" type="text" id="checkedPeer" name="checkedPeer" th:value="${transferredPoint.checkedPeer}"/>
-    </div>
-    <div class="form-group">
-      <label for="pointsAmount">Points Amount:</label>
-      <input class="form-control" type="number" id="pointsAmount" name="pointsAmount" th:value="${transferredPoint.pointsAmount}"/>
-    </div>
-    <button class="btn btn-primary" type="submit">Update Transfer</button>
-  </form>
-</div>
-
+<form th:action="@{/transferredpoints/update/{id}(id=${transferredPoint.id})}" method="post" class="margin-l">
+  <label  class="margin-t"for="checkingPeer">Checking Peer</label>
+  <input class="input-different "  type="text" id="checkingPeer" name="checkingPeer" th:value="${transferredPoint.checkingPeer}" style="margin-left: 20px">
+  <br>
+  <label  class="margin-t" for="checkedPeer">Checked Peer</label>
+  <input class="input-different " type="text" id="checkedPeer" name="checkedPeer" th:value="${transferredPoint.checkedPeer}"style="margin-left: 24px">
+  <br>
+  <label class="margin-t" for="pointsAmount">Points Amount</label>
+  <input class="input-different " type="number" id="pointsAmount" name="pointsAmount" th:value="${transferredPoint.pointsAmount}" style="margin-left: 20px">
+  <br>
+  <input class="input-home margin-t" type="submit" value="Submit">
+</form>
+<div th:insert="~{inner_scripts/scripts :: scripts}"></div>
 </body>
 </html>

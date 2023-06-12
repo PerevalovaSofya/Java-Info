@@ -12,6 +12,7 @@
 <div th:insert="~{inner_scripts/alerts :: alerts}"></div>
 <table class="container">
     <tr>
+        <td class="col2">Check Id</td>
         <td class="col2">Peer</td>
         <td class="col2">Task</td>
         <td class="col2">Date</td>
@@ -20,8 +21,9 @@
     </tr>
 
     <tr th:each="check : ${checks}">
-        <td class="col1" th:text="${check.getPeer()}"></td>
-        <td class="col1" th:text="${check.getTask()}"></td>
+        <td class="col3" th:text="${check.getId()}"></td>
+        <td class="col4" th:text="${check.getPeer()}"></td>
+        <td class="col4" th:text="${check.getTask()}"></td>
         <td class="col1" th:text="${check.getDate()}"></td>
         <td>
             <form th:method="POST" th:action="@{/checks/update/__${check.getId()}__}">
@@ -66,6 +68,7 @@
     </tr>
 
 </table>
+<br>
 <div th:insert="~{inner_scripts/scripts :: scripts}"></div>
 </body>
 </html>

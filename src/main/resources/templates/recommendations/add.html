@@ -20,8 +20,8 @@
     </select>
     <!--    <input class="input-different" type="text" th:field="*{peer}" id="peer" style="margin-left: 135px">-->
     <br/>
-    <label class="margin-t" for="recommendedPeer">Enter Recommended Peer </label>
-    <select class="input-different" id="recommendedPeer" name="peer" style="margin-left: 20px">
+    <label class="margin-t" for="recommendedpeer">Enter Recommended Peer </label>
+    <select class="input-different" id="recommendedpeer" name="recommendedPeer" style="margin-left: 20px">
         <option th:each="peer : ${peers}"
                 th:value="${peer.getNickname()}"
                 th:text="${peer.getNickname()}">
